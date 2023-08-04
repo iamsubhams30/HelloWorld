@@ -1,0 +1,46 @@
+System.setProperty("webdriver.chrome.driver","Location");
+
+WebDriver driver=new ChromeDriver();
+
+driver.manage().windows().maximize();
+
+driver.get(url);
+
+driver.manage().timeouts().implicitlyWait(TimeUnit.Seconds);
+
+List<WebElement> links=driver.findElements(By.tagname("a));
+System.out.println("Total Links"+links.size());
+int responseCode=200;
+int brokenLinksCount=0;
+
+for (Webelement element:links)
+{
+	String url=element.getAttribute("href");
+	
+	try
+	{
+		URL urlLink=new URL(url);
+		HttpUrlConnect huc=(HttpUrlConnect)urlLink.openConnection();
+		huc.setRequestMethod("HEAD");
+		huc.connect();
+
+		responseCode=huc.getResponse();
+		if (responseCode>=400)
+		{
+			System.out.println(url+" "+ "broken link");
+			brokenLinksCount++;
+		}
+		
+	}
+	catch(MalformedException e) 
+	{
+		e.printStackTrace();
+	}
+	catch (Exception e)
+	{	
+		e.printStackTrace();
+	}
+}
+
+System.out.println("Total Broken Links"+brokenLinksCount);
+

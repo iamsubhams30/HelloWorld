@@ -1,0 +1,252 @@
+
+// String reverse
+
+public class Main
+{
+    public static void main(String[] args) {
+       String name="Subham";
+       String reverse="";
+        for (int i=name.length()-1;i>=0;i--)
+        {
+            reverse=reverse+name.charAt(i);
+        }
+            System.out.println("Reverse of :"+ " "+name +" is" + " " +reverse);
+    }
+}
+
+
+
+// Online IDE - Code Editor, Compiler, Interpreter
+
+public class Main
+{
+    public static void main(String[] args) {
+        String name1="Subham";
+        String name2="Banerjee";
+        String reverse="";
+        
+        String concat=name1 + name2;
+        System.out.println("After Concanting Name is :" + concat);
+        
+        
+        for(int i=concat.length()-1;i>=0;i--)
+        {
+            reverse=reverse+concat.charAt(i);
+            
+        }
+         System.out.println("Reverse of :"+ " "+concat +" is" + " " +reverse);
+    }
+}
+
+
+//Number reverse
+
+public class Main
+{
+    public static void main(String[] args) {
+      int number=54321,remainder,reverse=0;
+      while(number!=0)
+      {
+          remainder=number%10;
+          reverse=reverse*10+remainder;
+          number=number/10;
+      }
+      System.out.println(reverse);
+    }
+}
+
+
+Test Plan:
+
+1. Overview of the Project
+2. Scope of the project
+3. What level of testing will be done and what will be covered
+4. Entry and Exit criteria for each level of testing.
+5. Environment requirement and Details.
+6. Test data requirements.
+7. System Testing schedule and Interfacing application schedules
+8. Risk Management
+10. Cross project dependency
+11. Project Assumptions.
+12. Signoff details
+
+
+
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+ 
+public class GetDuplicateElementFromStringArrays {
+ 
+    public static void main(String[] args) {
+ 
+       
+        String[] strArrays = {
+                "Cabbage",
+                "Kale",
+                "Radish",
+                "Kale",
+                "Garlic",
+                "Beetroot",
+                "Garlic",
+                "Carrot",
+                "Kale"
+        };
+ 
+        
+        List<String> list = Arrays.asList(strArrays);
+ 
+        
+        Set<String> set = new HashSet<String>();
+ 
+       
+        for(String str : list) {
+            
+            boolean flagForDuplicate = set.add(str);
+ 
+            if(!flagForDuplicate) {
+                System.out.println(str + " is duplicate element");
+            }
+        }
+    }
+}
+
+
+
+public class GetDuplicateFrequencyInStringArrays {
+ 
+    public static void main(String[] args) {
+ 
+        // String Arrays
+        String[] strArrays = {
+                "Cabbage", 
+                "Kale",
+                "Radish",
+                "Kale",
+                "Garlic",
+                "Ginger",
+                "Garlic",
+                "Carrot",
+                "Kale"
+        };
+ 
+        // First convert to List
+        List<String> list = Arrays.asList(strArrays);
+ 
+        // just empty HashSet object
+        // add converted List (Arrays -> List)
+        Set<String> setVeg = new HashSet<String>(list);
+ 
+        System.out.println("Element-Name\tFrequency");
+        System.out.println("============\t==========");
+ 
+        // Iterate using enhanced for-each loop
+        for (String veg : setVeg) {
+            System.out.println(veg + "\t\t"
+                    + Collections.frequency(list, veg));
+        }
+    }
+}
+
+
+
+
+
+public class CountOccuranceOfChar2  
+{  
+public static void main(String args[])   
+{  
+String str = "google";  
+//HashMap char as a key and occurrence as a value  
+HashMap <Character, Integer> charCount = new HashMap<>();  
+for (int i = str.length() - 1; i >= 0; i--)   
+{  
+if(charCount.containsKey(str.charAt(i)))   
+{  
+int count = charCount.get(str.charAt(i));  
+charCount.put(str.charAt(i), ++count);  
+}   
+else   
+{  
+charCount.put(str.charAt(i),1);  
+}  
+}  
+System.out.println(charCount);  
+}  
+}  
+
+
+
+
+
+
+
+
+
+
+
+ublic class MergeArrayExample4  
+{  
+public static void main(String args[])   
+{  
+String str1[] = { "A", "E", "I" };          //source array  
+String str2[] = { "O", "U" };               //destination array  
+List list = new ArrayList(Arrays.asList(str1)); //returns a list view of an array  
+//returns a list view of str2 and adds all elements of str2 into list  
+list.addAll(Arrays.asList(str2));     
+Object[] str3 = list.toArray();         //converting list to array  
+System.out.println(Arrays.toString(str3));  //prints the resultant array  
+}  
+}  
+
+
+
+
+
+
+
+
+
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class HelloWorld {
+    public static void main(String[] args) {
+        int s=100;
+        int t=200;
+        String u=Integer.toString(s);
+        System.out.println(s+t);
+        System.out.println(t+u);
+        
+        //Boxing- primitive to object
+        
+        
+        ////Autoboxing
+        int autoBoxing = 100;
+        Integer autoBoxingInteger=autoBoxing;
+        
+        System.out.println(100+autoBoxingInteger);
+        
+        //Boxing
+        int Boxing1 = 100;
+        Integer autoBoxingInteger1=Integer.valueOf(autoBoxing);
+        System.out.println(100+autoBoxingInteger1);
+        
+        
+        ////Unboxing -object to primitive
+        
+        //Unboxing
+        Integer unboxingInteger= 100;
+        int unboxing=unboxingInteger.intValue();
+         System.out.println(100+unboxing);
+         
+         
+         //AutoUnboxing
+         Integer unboxingInteger1= 100;
+         int autoUnboxing=unboxingInteger1;
+         System.out.println(100+autoUnboxing);
+    }
+}
